@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode – full color, clear borders & text (no blank/white feel) */
+:root {
+  --background: #e8eef4;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-elevated: #f1f5f9;
+  --accent: #0ea5e9;
+  --accent-hover: #0284c7;
+  --accent-soft: rgba(14, 165, 233, 0.15);
+  --muted: #334155;
+  --border: #cbd5e1;
+  --border-strong: #94a3b8;
+  --hero-pattern: linear-gradient(160deg, #dbeafe 0%, #e0f2fe 25%, #f0f9ff 50%, #e0e7ff 75%, #fce7f3 100%);
+  --hero-glow: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(14, 165, 233, 0.35), transparent 60%);
+  --card-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+  --card-shadow-hover: 0 20px 30px -8px rgba(15, 23, 42, 0.12), 0 8px 12px -4px rgba(15, 23, 42, 0.06);
+  --section-bg: #e8eef4;
+}
+
+.dark {
+  --background: #0c1222;
+  --foreground: #f1f5f9;
+  --surface: #1a2234;
+  --surface-elevated: #243044;
+  --accent: #38bdf8;
+  --accent-hover: #7dd3fc;
+  --accent-soft: rgba(56, 189, 248, 0.15);
+  --muted: #94a3b8;
+  --border: #334155;
+  --border-strong: #475569;
+  --hero-pattern: linear-gradient(160deg, #0c1222 0%, #1a2234 40%, #1e1b4b 70%, #1a1625 100%);
+  --hero-glow: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.12), transparent 60%);
+  --card-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.25), 0 2px 6px -2px rgba(0, 0, 0, 0.15);
+  --card-shadow-hover: 0 20px 30px -8px rgba(0, 0, 0, 0.3), 0 8px 12px -4px rgba(0, 0, 0, 0.2);
+  --section-bg: #0c1222;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased transition-colors duration-300;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-elevated);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.glass {
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
